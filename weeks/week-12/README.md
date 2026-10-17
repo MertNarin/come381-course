@@ -1,48 +1,43 @@
-# Hafta 12: Eşzamanlılık denetimi
+# Hafta 12: Veritabanı güvenliği ve capstone sunumları
 
 Durum: Yakında
 
 ## Bu hafta ne işliyoruz
 
-- Eşzamanlı çalışmanın sorunları: kayıp güncelleme (lost update), kirli okuma (dirty read), tekrarlanamayan okuma, hayalet satır
-- Kilit tabanlı protokoller: paylaşılan ve özel kilit, iki aşamalı kilitleme (2PL)
-- Kilitlenme (deadlock): tespit, önleme, beklemeli çizelge grafiği
-- Zaman damgası sıralaması (timestamp ordering)
-- Çok sürümlü denetim (MVCC) ve iyimser (optimistic) yaklaşım
-- İzolasyon seviyeleri ve hangi anomaliyi önledikleri
+- Güvenlik tehditleri ve erişim denetimi
+- Role ve yetki tasarımı: `GRANT`, `REVOKE`, en az yetki ilkesi
+- SQL injection ve parametreli sorgularla korunma
+- Capstone demoları
+- İsteğe bağlı: JSONB, NoSQL, vektör veritabanları (pgvector), dağıtık ve nesne yönelimli sistemler
 
 ## Hafta sonunda yapabileceklerin
 
-- İki oturumla anomali ve kilitlenme üretebilirsin
-- Hangi izolasyon seviyesinin hangi anomaliyi önlediğini açıklayabilirsin
-- 2PL ile zaman damgası sıralamasını karşılaştırabilirsin
+- Uygulaman için role bazlı yetki tasarlayabilirsin
+- Bir SQL injection denemesi yapıp parametreli sorguyla önleyebilirsin
+- Capstone projeni sunabilirsin
 
 ## Anahtar terimler
 
 | English | Türkçe |
 |---|---|
-| concurrency control | eşzamanlılık denetimi |
-| two-phase locking (2PL) | iki aşamalı kilitleme |
-| deadlock | kilitlenme |
-| timestamp ordering | zaman damgası sıralaması |
-| isolation level | izolasyon seviyesi |
+| access control | erişim denetimi |
+| least privilege | en az yetki |
+| SQL injection | SQL enjeksiyonu |
+| role | rol |
 
 ## Laboratuvar
 
-İki `psql` oturumuyla anomali ve kilitlenme deneyi.
+Role oluşturma, `GRANT` / `REVOKE`, SQL injection testi. Capstone demoları.
 
 ## Okuma
 
-Eşzamanlılık denetimi protokolleri bölümü.
+Veritabanı güvenliği bölümü.
 
 ## Ek kaynaklar
 
-- PostgreSQL Concurrency Control: https://www.postgresql.org/docs/current/mvcc.html
+- PostgreSQL Privileges: https://www.postgresql.org/docs/current/ddl-priv.html
+- pgvector: https://github.com/pgvector/pgvector
 
-## Kilometre taşı
+## Teslim
 
-Capstone ara kontrol (Pull Request incelemesi)
-
-## Ödev
-
-Bu haftanın ödevi ayrıca eklenecek.
+**Capstone teslimi** bu hafta. Savunmalar final haftasında, bireysel ve 10 dakika.

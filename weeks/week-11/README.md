@@ -1,48 +1,45 @@
-# Hafta 11: İşlem işleme: ACID, çizelge ve serileştirilebilirlik
+# Hafta 11: Veritabanı kurtarma
 
 Durum: Yakında
 
 ## Bu hafta ne işliyoruz
 
-- İşlem (transaction) kavramı, durumları: aktif, kısmen tamamlanmış, tamamlanmış, başarısız, sonlanmış
-- ACID özellikleri: atomiklik, tutarlılık, izolasyon, kalıcılık
-- Çizelge (schedule): seri, serileştirilebilir (serializable) çizelge
-- Çakışma serileştirilebilirliği ve öncelik grafiği (precedence graph)
-- Kurtarılabilir (recoverable) ve basamaklı geri almayan (cascadeless) çizelgeler
-- PostgreSQL'de `BEGIN`, `COMMIT`, `ROLLBACK`, `SAVEPOINT`
+- Hata türleri: transaction hatası, sistem çökmesi, disk hatası
+- Log tabanlı kurtarma: undo, redo, checkpoint
+- Write-ahead logging (WAL)
+- ARIES algoritmasına giriş
+- Shadow paging
+- Backup ve restore: `pg_dump`, `pg_restore`
 
 ## Hafta sonunda yapabileceklerin
 
-- ACID özelliklerini bir banka havalesi örneğiyle açıklayabilirsin
-- Verilen bir çizelgenin serileştirilebilir olup olmadığını öncelik grafiğiyle kontrol edebilirsin
-- Kurtarılabilir ve kurtarılamaz çizelge arasındaki farkı gösterebilirsin
+- Bir çökmeden sonra log'a bakıp hangi transaction'ın undo, hangisinin redo edileceğini çıkarabilirsin
+- Veritabanını yedekten geri yükleyebilirsin
+- WAL'ın ve checkpoint'in rolünü anlatabilirsin
 
 ## Anahtar terimler
 
 | English | Türkçe |
 |---|---|
-| transaction | işlem |
-| schedule | çizelge |
-| serializability | serileştirilebilirlik |
-| precedence graph | öncelik grafiği |
-| recoverable schedule | kurtarılabilir çizelge |
+| write-ahead log (WAL) | önceden yazma günlüğü |
+| checkpoint | kontrol noktası |
+| undo / redo | geri alma / yeniden yapma |
+| shadow paging | gölge sayfalama |
+| backup / restore | yedekleme / geri yükleme |
 
 ## Laboratuvar
 
-`BEGIN`, `COMMIT`, `ROLLBACK`, `SAVEPOINT` ile işlem deneyleri. Havale senaryosunda yarım kalan işlemi geri alma.
+`pg_dump` / `pg_restore` tatbikatı: veritabanını yedekle, boz, geri yükle; adımları ve süreyi not et.
 
 ## Okuma
 
-İşlem işleme kavramları ve işlem teorisi bölümleri (Elmasri & Navathe veya Silberschatz).
+Veritabanı kurtarma bölümü.
 
 ## Ek kaynaklar
 
-- PostgreSQL Transactions: https://www.postgresql.org/docs/current/tutorial-transactions.html
-
-## Kilometre taşı
-
-Haftalık lab teslimi
+- PostgreSQL Backup and Restore: https://www.postgresql.org/docs/current/backup.html
+- PostgreSQL WAL: https://www.postgresql.org/docs/current/wal-intro.html
 
 ## Ödev
 
-Bu haftanın ödevi ayrıca eklenecek.
+Ödev 6: Backup ve restore tatbikatı. Yönergesi bu klasöre eklenecek.

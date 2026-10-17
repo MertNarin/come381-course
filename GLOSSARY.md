@@ -17,3 +17,8 @@ Terimler dönem boyunca eklenir.
 | relation / tuple / attribute / primary key | ilişki / satır / nitelik / birincil anahtar |
 | declarative / imperative | bildirimsel / buyurgan |
 | repository / push / collaborator | depo (repo) / gönderme / ortak çalışan |
+| foreign key / referential integrity | yabancı anahtar / referans bütünlüğü |
+| check constraint / unique constraint | kontrol kısıtı / tekillik kısıtı |
+| cascade / restrict | zincirleme silme / engelleme |
+| relational algebra / relational calculus | ilişkisel cebir / ilişkisel hesap |
+| selection / projection / join / division | seçim / izdüşüm / birleştirme / bölme |

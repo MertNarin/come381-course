@@ -1,42 +1,47 @@
-# Hafta 6: SQL I
+# Hafta 6: SQL ile soru sormak
 
 Durum: Yakında
 
 ## Bu hafta ne işliyoruz
 
 - `SELECT`, `WHERE`, `ORDER BY`
-- `JOIN` çeşitleri
-- `GROUP BY`, `HAVING`, toplama fonksiyonları (aggregate functions)
+- `JOIN` türleri: inner, left, right, full outer
+- `GROUP BY`, `HAVING` ve aggregate fonksiyonlar
+- Alt sorgular (subquery) ve küme işlemleri: `UNION`, `INTERSECT`, `EXCEPT`
+- `NULL` ile çalışmak: `IS NULL`, `COALESCE`, üç değerli mantık
+- CTE (`WITH`) ve window fonksiyonlarına giriş
+- `INSERT`, `UPDATE`, `DELETE` ve constraint ihlalleri
 
 ## Hafta sonunda yapabileceklerin
 
-- Birden çok tabloyu birleştiren sorgular yazabilirsin
-- Gruplama ve toplama ile özet çıkarabilirsin
+- Birden çok tabloyu join ederek soru sorabilirsin
+- Gruplayıp özet çıkarabilir, `HAVING` ile grubu filtreleyebilirsin
+- Karmaşık bir soruyu CTE ile parçalara bölebilirsin
+- `NULL`'ın sonucu nasıl değiştirdiğini açıklayabilirsin
+- Yapay zekanın yazdığı bir sorguyu kendi verinde test edip doğru olup olmadığını gösterebilirsin
 
 ## Anahtar terimler
 
 | English | Türkçe |
 |---|---|
 | aggregate function | toplama fonksiyonu |
-| join | birleştirme |
+| subquery | alt sorgu |
+| common table expression (CTE) | ortak tablo ifadesi |
+| window function | pencere fonksiyonu |
 
 ## Laboratuvar
 
-Örnek veri (seed) yükleme, 10 temel sorgu.
+Kendi senaryon için seed verisi ve sorgu seti. Bir yapay zeka aracına sorgu yazdır, sonucu elle doğrula.
 
 ## Okuma
 
-SQL bölümü.
+SQL bölümleri (Elmasri & Navathe veya Silberschatz).
 
 ## Ek kaynaklar
 
 - SQL Murder Mystery: https://mystery.knightlab.com
 - PostgreSQL SQL Commands: https://www.postgresql.org/docs/current/sql-commands.html
 
-## Kilometre taşı
-
-Haftalık lab teslimi
-
 ## Ödev
 
-Bu haftanın ödevi ayrıca eklenecek.
+Ödev 3: SQL sorgu seti ve GitHub üzerinden kısa sınav. Yönergesi bu klasöre eklenecek.

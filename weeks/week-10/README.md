@@ -1,50 +1,44 @@
-# Hafta 10: Gelişmiş SQL ve indekse giriş
+# Hafta 10: Eşzamanlılık denetimi
 
 Durum: Yakında
 
 ## Bu hafta ne işliyoruz
 
-- Karmaşık sorgular: iç içe ve ilişkili alt sorgu (correlated subquery), `EXISTS`, dış birleştirme (outer join)
-- View ve materialized view
-- Trigger (tetikleyici) ve saklı fonksiyon (stored function)
-- Kısıtların assertion ve trigger ile tanımlanması (PostgreSQL'de `CREATE ASSERTION` yoktur, aynı iş `CHECK` ve trigger ile yapılır)
-- Şema değişikliği (`ALTER TABLE`)
-- İndekse giriş: B-tree indeks, `EXPLAIN ANALYZE` ile planı okuma
+- Aynı anda çalışan transaction'ların sorunları: lost update, dirty read, non-repeatable read, phantom
+- Kilit tabanlı protokoller: shared ve exclusive lock, two-phase locking (2PL)
+- Deadlock: tespit ve önleme, wait-for graph
+- Timestamp ordering
+- MVCC ve optimistic yaklaşım
+- Isolation level'lar ve hangi anomaliyi önledikleri
 
 ## Hafta sonunda yapabileceklerin
 
-- View ile yetki ve sadelik sağlayabilirsin
-- Trigger ile veritabanı içinde kural uygulayabilirsin
-- Mevcut tabloyu `ALTER TABLE` ile değiştirebilirsin
-- Bir indeksin sorgu planını nasıl değiştirdiğini ölçebilirsin
+- İki `psql` oturumuyla bir anomali ve bir deadlock üretebilirsin
+- Hangi isolation level'ın hangi anomaliyi önlediğini açıklayabilirsin
+- 2PL ile timestamp ordering'i karşılaştırabilirsin
 
 ## Anahtar terimler
 
 | English | Türkçe |
 |---|---|
-| view / materialized view | görünüm / gerçekleştirilmiş görünüm |
-| trigger | tetikleyici |
-| assertion | iddia (genel bütünlük kısıtı) |
-| query plan | sorgu planı |
-| B-tree index | B-ağacı indeksi |
+| concurrency control | eşzamanlılık denetimi |
+| two-phase locking (2PL) | iki aşamalı kilitleme |
+| deadlock | kilitlenme |
+| timestamp ordering | zaman damgası sıralaması |
+| isolation level | izolasyon seviyesi |
 
 ## Laboratuvar
 
-View, trigger ve `ALTER TABLE` uygulaması. `EXPLAIN ANALYZE` ile bir sorguyu indeksten önce ve sonra ölçme.
+İki `psql` oturumuyla anomali ve deadlock deneyi.
 
 ## Okuma
 
-Gelişmiş SQL bölümü (tetikleyiciler, görünümler, şema değişikliği). İndeksleme bölümünün giriş kısmı.
+Eşzamanlılık denetimi protokolleri bölümü.
 
 ## Ek kaynaklar
 
-- Use The Index, Luke: https://use-the-index-luke.com
-- PostgreSQL Triggers: https://www.postgresql.org/docs/current/triggers.html
-
-## Kilometre taşı
-
-Capstone önerisi (GitHub Issue)
+- PostgreSQL Concurrency Control: https://www.postgresql.org/docs/current/mvcc.html
 
 ## Ödev
 
-Bu haftanın ödevi ayrıca eklenecek.
+Ödev 5: Capstone ara kontrol (Pull Request). Yönergesi bu klasöre eklenecek.

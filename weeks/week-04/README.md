@@ -1,6 +1,6 @@
 # Hafta 4: ER/EER'den ilişkisel şemaya
 
-Durum: Yakında
+Durum: Yayında
 
 ## Bu hafta ne işliyoruz
 
@@ -34,8 +34,8 @@ ER-ilişkisel eşleme bölümü.
 
 ## Kilometre taşı
 
-Taslak şema (Pull Request)
+Bu haftanın şeması Ödev 1 olarak Hafta 5'te teslim edilir.
 
 ## Ödev
 
-Ödev 1: yönergesi ders günü bu klasöre eklenir.
+Bu haftanın konusu Ödev 1'de: [week-05/odev-1.md](../week-05/odev-1.md). Son teslim 25 Ekim 2026.

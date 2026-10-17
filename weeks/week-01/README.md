@@ -47,6 +47,3 @@ Elmasri & Navathe, Silberschatz vb. kitaplarda "veritabanı sistemlerine giriş"
 
 GitHub kullanıcı adı, kayıt formu, ilk repo
 
-## Ödev
-
-Bu haftanın ödevi ayrıca eklenecek.

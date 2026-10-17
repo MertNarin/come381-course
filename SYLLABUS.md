@@ -23,22 +23,22 @@ Bu dersi tamamlayan öğrenci:
 
 ## Ders yapısı
 
-Haftada 2 saat ders ve 2 saat laboratuvar, 14 hafta. Laboratuvar dersin devamı olarak aynı hafta içinde uygulamadır.
+12 hafta; her hafta 2 saat ders ve 2 saat laboratuvar. Laboratuvar, o haftanın dersini kendi bilgisayarında uyguladığın kısımdır.
 
 ## Değerlendirme
 
 | Bileşen | Ağırlık | Ayrıntı |
 |---|---|---|
-| Vize | %30 | Veritabanı tasarım dosyası (%20, Hafta 8) ve savunma, 7 dakika (%10, Hafta 9) |
+| Vize | %30 | Veritabanı tasarım dosyası (%20, Hafta 7) ve savunma, 7 dakika (%10, Hafta 8) |
 | Ödevler | %20 | 6 ödevin ortalaması. En düşük not atılır, kalan 5 ödevin ortalaması alınır |
-| Final | %50 | Capstone teslimi (%35, Hafta 14) ve savunma, 10 dakika (%15) |
+| Final | %50 | Capstone teslimi (%35, Hafta 12) ve savunma, 10 dakika (%15, final haftası) |
 
-Yazılı sınav yok: inşa edersin, sonra savunursun. Ödevler Hafta 4'te başlar. Capstone önerisi ve ara kontrol de ödevler arasında yer alır. Ödev konuları ve rubrikler, her ödevle birlikte repoya eklenir.
+Yazılı sınav yok: inşa edersin, sonra savunursun. İlk iki ödev Hafta 5'te verilir. Capstone önerisi ve ara kontrol de ödevler arasında yer alır. Ödev konuları ve rubrikler, her ödevle birlikte repoya eklenir.
 
 ## Kurallar
 
 - Çalışmalar bireyseldir.
-- Teslim zamanı, `main` dalındaki son commit'in zaman damgasıdır.
+- Ödevlerde teslim zamanı, Pull Request'teki son commit'in zamanıdır. Vize ve capstone'da `main` branch'indeki son commit'e bakılır.
 - Vize teslimi, GitHub repoya ek olarak 1 sayfalık imzalı bir raporla tamamlanır. Rapor, savunma günü elden teslim edilir ve repodaki son commit'in kodunu (hash) taşır.
 - İşi dönem boyunca küçük ve anlamlı commit'lerle ilerlet. Tek dev commit ile gelen teslimde puan kırılır.
 - Şifre, API anahtarı ve token hiçbir zaman repoya girmez.
