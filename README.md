@@ -1,26 +1,7 @@
-# COME 381 Veritabanı Sistemleri (Database Systems)
+﻿# Student Internship and Career Tracking System
 
-Doğuş Üniversitesi - Güz 2026-2027
-
-Bu repo, COME 381 dersinin kaynak deposudur. Haftalık ders içerikleri burada bulunur.
-
-Ödevlerini bu depoya değil, kendi özel GitHub depona yüklemelisin.
-
-## Dersin haftalık içerikleri
-
-Hafta 1: Neden veritabanı?
-Hafta 2: ER modeli
-Hafta 3: Genişletilmiş ER modeli
-Hafta 4: İlişkisel şemaya dönüşüm
-Hafta 5: İlişkisel model ve kısıtlar
-Hafta 6: SQL sorguları
-Hafta 7: Normalleştirme
-Hafta 8: Vize
-Hafta 9: Transaction
-Hafta 10: Eşzamanlılık
-Hafta 11: Veritabanı kurtarma
-Hafta 12: Veritabanı güvenliği
-
-## Dil
-
-Açıklamalar Türkçe, teknik terimler İngilizce kullanılır.
+This database is designed to manage students, companies, internship opportunities, and student applications.
+Students can apply for internships published by companies.
+Each company can publish multiple internship opportunities, and each internship belongs to one company.
+The application table connects students and internships, representing a many-to-many relationship.
+Separate tables are used to reduce data duplication and maintain referential integrity.
