@@ -1,33 +1,37 @@
 ﻿erDiagram
-    STUDENT ||--o{ APPLICATION : submits
-    INTERNSHIP ||--o{ APPLICATION : receives
-    COMPANY ||--o{ INTERNSHIP : publishes
-
     STUDENT {
-        int student_id PK
-        string full_name
-        string email
-        string department
+        INTEGER student_id PK
+        VARCHAR full_name
+        VARCHAR email UK
+        VARCHAR department
+        VARCHAR city
     }
 
     COMPANY {
-        int company_id PK
-        string company_name
-        string industry
+        INTEGER company_id PK
+        VARCHAR company_name
+        VARCHAR industry
     }
 
     INTERNSHIP {
-        int internship_id PK
-        int company_id FK
-        string title
-        string description
-        date application_deadline
+        INTEGER internship_id PK
+        INTEGER company_id FK
+        VARCHAR title
+        TEXT description
+        DATE application_deadline
+        INTEGER capacity
+        DATE start_date
+        DATE end_date
     }
 
     APPLICATION {
-        int application_id PK
-        int student_id FK
-        int internship_id FK
-        date application_date
-        string status
+        INTEGER application_id PK
+        INTEGER student_id FK
+        INTEGER internship_id FK
+        DATE application_date
+        VARCHAR status
     }
+
+    COMPANY ||--o{ INTERNSHIP : publishes
+    STUDENT ||--o{ APPLICATION : submits
+    INTERNSHIP ||--o{ APPLICATION : receives
