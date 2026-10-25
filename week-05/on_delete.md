@@ -2,63 +2,81 @@ Foreign Key Delete Policies
 
 
 
-1\. Student–Application Relationship
+1\. Student–Application: ON DELETE CASCADE
 
 
 
-Foreign key: application.student\_id references student.student\_id
+The foreign key application.student\_id references student.student\_id with ON DELETE CASCADE.
 
 
 
-Policy: ON DELETE NO ACTION (default PostgreSQL behavior).
+Reason: When a student is deleted, their applications are deleted automatically. This is appropriate for demonstrating cascading deletion, although a production system may prefer to preserve application history.
 
 
 
-Reason: A student with existing applications should not be deleted while those applications reference the student. This protects application history.
+2\. Internship–Application: ON DELETE NO ACTION
 
 
 
-Why not CASCADE? CASCADE would automatically delete the student's applications, which could remove useful application history.
+The foreign key application.internship\_id references internship.internship\_id using the default NO ACTION behavior.
 
 
 
-2\. Internship–Application Relationship
+Reason: An internship cannot be deleted while applications reference it. This protects application records from losing their internship context.
 
 
 
-Foreign key: application.internship\_id references internship.internship\_id
+3\. Company–Internship: ON DELETE NO ACTION
 
 
 
-Policy: ON DELETE NO ACTION (default PostgreSQL behavior).
+The foreign key internship.company\_id references company.company\_id using the default NO ACTION behavior.
 
 
 
-Reason: An internship with existing applications should not be deleted while applications reference it.
+Reason: A company cannot be deleted while it has internship listings. The listings must be handled first.
 
 
 
-Why not SET NULL? The internship\_id column is required and cannot be NULL. An application without an associated internship would also lose important context.
+CASCADE Demonstration
 
 
 
-3\. Company–Internship Relationship
+The following commands demonstrate cascading deletion using the schema's application.student\_id foreign key. Run them after loading the sample data. The transaction is rolled back so the sample data remains unchanged.
 
 
 
-Foreign key: internship.company\_id references company.company\_id
+BEGIN;
 
 
 
-Policy: ON DELETE NO ACTION (default PostgreSQL behavior).
+SELECT COUNT(\*) AS applications\_before
+
+FROM application
+
+WHERE student\_id = 1;
 
 
 
-Reason: A company with existing internship listings should not be deleted until those listings are handled. This protects the relationship between companies and internships.
+DELETE FROM student
+
+WHERE student\_id = 1;
 
 
 
-Why not CASCADE? Deleting a company could automatically remove its internship listings and affect related applications.
+SELECT COUNT(\*) AS applications\_after
+
+FROM application
+
+WHERE student\_id = 1;
+
+
+
+ROLLBACK;
+
+
+
+Expected result: applications\_before is greater than zero, while applications\_after is zero because the student's applications are deleted automatically. ROLLBACK restores the deleted student and applications.
 
 
 
@@ -66,43 +84,13 @@ RESTRICT vs. NO ACTION
 
 
 
-RESTRICT prevents a referenced row from being deleted when dependent rows exist, while NO ACTION checks referential integrity at constraint-check time and can allow deferred checking when the constraint is deferrable.
+RESTRICT prevents deletion when dependent rows exist. NO ACTION checks referential integrity when the constraint is checked and may allow deferred checking if the constraint is deferrable.
 
 
 
-CASCADE Evidence
+Summary
 
 
 
-The current schema uses the default NO ACTION behavior for its foreign keys, so deleting a referenced company is expected to fail with SQLSTATE 23503. The following commands demonstrate the existing behavior and record the number of internships before and after the attempted deletion.
-
-
-
-SELECT COUNT(\*) AS internships\_before
-
-FROM internship
-
-WHERE company\_id = 1;
-
-
-
-DELETE FROM company
-
-WHERE company\_id = 1;
-
-
-
-SELECT COUNT(\*) AS internships\_after
-
-FROM internship
-
-WHERE company\_id = 1;
-
-
-
-The DELETE statement is expected to fail because the company is referenced by internship rows. Run the final SELECT separately after the failed DELETE to confirm that the internship count remains unchanged.
-
-
-
-This demonstrates that the current foreign key policy preserves related internship records rather than deleting them automatically.
+This design demonstrates two deletion policies: CASCADE for student applications and NO ACTION for internship and company relationships. The policy should be chosen according to whether dependent records should be automatically deleted or preserved.
 

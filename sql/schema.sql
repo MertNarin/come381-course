@@ -32,7 +32,7 @@ CREATE TABLE application (
     application_date DATE NOT NULL,
     status VARCHAR(30) NOT NULL,
     CONSTRAINT fk_application_student
-        FOREIGN KEY (student_id) REFERENCES student(student_id),
+    FOREIGN KEY (student_id) REFERENCES student(student_id) ON DELETE CASCADE,
     CONSTRAINT fk_application_internship
         FOREIGN KEY (internship_id) REFERENCES internship(internship_id)
 );
